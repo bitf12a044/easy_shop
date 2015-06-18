@@ -1,0 +1,94 @@
+﻿@model EADProjectMVC.Models.Validate
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <title>Account</title>
+    <script>
+    
+       
+            
+        //$('uname').focusin(function () {
+        //    $('#p1').text("**");
+        //});
+        function A() {
+               
+            var username = $('#uname').val();
+            $.getJSON("/Account/Check?uname=" + username, function (result) {
+                if (result) {
+                    //var abc = document.getElementById("uname").text(" ");
+                    $('#p1').text("  *UserName already exist");
+                    $('#p1').css("color", "red")
+                }
+                else {
+                    $('#p1').text("  UserName Available");
+                    $('#p1').css("color","green")
+                }
+            });
+               
+        }
+       
+</script>
+    
+</head>
+<br />
+<br />
+<br />
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-1">
+            <div>
+                <!--login form-->
+                <h2>Login to your account</h2>
+                <!--<form>-->
+            @using (Html.BeginForm("SignIn","Account",FormMethod.Post))
+            { 
+                    @*<input type="text" placeholder="Email" name="Email"><br /><br />
+                        <input type="email" placeholder="Passward" name="Passward">*@
+                    @Html.TextBoxFor(model => model.Email, new { placeholder = "Email",type="email" })<br /><br />
+                    @Html.TextBoxFor(model => model.Passward, new { placeholder = "Passward",type="password" })<br /><br />
+
+                    <span>
+                        <!--<br /><br />-->
+                        <input type="checkbox" class="checkbox">Keep me signed in
+
+                    </span>
+                    <br /><br /> <button type="submit" class="btn btn-primary">Login</button>
+            }
+            <!--</form>-->
+            </div><!--/login form-->
+        </div>
+        <div class="col-sm-3">
+
+            <h2 class="or">OR</h2>
+        </div>
+        <div class="col-sm-4">
+            <div class="signup-form">
+                <!--sign up form-->
+                <h2>New User Signup!</h2>
+                <!--<form action="~/Account/SignUp" method="post">-->
+                    @using (Html.BeginForm("SignUp","Account",FormMethod.Post)) { 
+                    @*<input type="text" placeholder="Name" name="Name"><br /><br />
+                        <input type="email" placeholder="Email Address" name="Email"><br /><br />
+                        <input type="password" placeholder="Password" name="Passward"><br /><br />*@
+
+                    @Html.TextBoxFor(model => model.Name, new { placeholder = "Name" })<br /><br />
+                    @Html.TextBoxFor(model => model.Email, new { placeholder = "Email",id="uname" })<p id="p1"></p>
+                        <br /><br />
+            <button type="button" id="b1" class="btn btn-primary" onclick="A()">check</button>
+                        <br /><br />
+                    @Html.TextBoxFor(model => model.Passward, new { placeholder = "Passward", type = "password" })<br /><br />
+                   
+                    <button type="submit" class="btn btn-primary">Signup</button><br /><br />
+                    }
+            <!--</form>-->
+            </div><!--/sign up form-->
+        </div>
+    </div>
+</div>
+
+<script src="../../Scripts/bootstrap.min.js"></script>
+<script src="../../Scripts/jquery-1.10.2.js"></script>
+
