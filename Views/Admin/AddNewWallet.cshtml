@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddNewWallet</title>
+</head>
+<body>
+    <div> 
+        <div>
+            <div class="row">
+            </div>
+            <div>
+                <center>
+                    <div class="row">
+                        <div class="col-lg-3">
+
+                        </div>
+                        <div class="col-lg-2">
+                            <form action="/Admin/SaveImageWallet" method="post" enctype="multipart/form-data">
+
+                                Upload Image: <br /><input type="file" name="image" class="btn btn-primary" />
+                                <br /><br />
+                                <button type="submit">Save</button>
+                                <br /><br />
+                            </form>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <form action="/Admin/SaveNewWallet" method="post" enctype="multipart/form-data">
+                                        <!--<input type="submit" value="upload" class="btn btn-primary" />-->
+                                        <input type="text" placeholder="Size" name="Size" /><br /><br />
+                                        <input type="text" placeholder="Price" name="price" /><br /><br />
+                                        <input type="text" placeholder="Company" name="company" /><br /><br />
+                                        <input type="text" placeholder="Type Image Name" name="image" /><br /><br />
+                                        <input type="submit" value="Add" />
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </center>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

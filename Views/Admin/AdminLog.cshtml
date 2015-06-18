@@ -1,0 +1,43 @@
+﻿@model EADProjectMVC.Models.Admin
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdminLog</title>
+</head>
+<body>
+    <div> 
+        <div class="row">
+            
+            <div class="col-sm-4 col-sm-offset-1">
+                <div>
+                    <!--login form-->
+                    <h2>Login to your account</h2>
+                    <!--<form>-->
+                    @using (Html.BeginForm("AdminSignIn", "Admin", FormMethod.Post))
+                    {
+                        @*<input type="text" placeholder="Email" name="Email"><br /><br />
+                        <input type="email" placeholder="Passward" name="Passward">*@
+                        @Html.TextBoxFor(model => model.Email, new { placeholder = "Email", type = "email" })<br /><br />
+                        @Html.TextBoxFor(model => model.Passward, new { placeholder = "Passward", type = "password" })<br /><br />
+                        
+                        <span>
+                            <!--<br /><br />-->
+                           <!-- <input type="checkbox" class="checkbox">Keep me signed in-->
+
+                        </span>
+                        <br /><br /> <button type="submit" class="btn btn-primary">Login</button>
+                    }
+                    <!--</form>-->
+                </div><!--/login form-->
+            </div>
+           
+        </div>
+    </div>
+</body>
+</html>

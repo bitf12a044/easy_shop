@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title EasyShop</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+
+        <div class="container">
+
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/home/Index">Home</a>
+                @*@Html.ActionLink("Home", "Index", "home", null, new { @class = "navbar-brand" })*@
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
+                <ul class="nav navbar-nav nav-pills">
+                    <li>
+                        <a href="/About/About" class="btn">About</a>
+                        @*@Html.ActionLink("About", "About", "About", null, new { @class = "btn" })*@
+                    </li>
+                    <li>
+                        <a href="/Cart/Cart">View Cart</a>
+                        @*@Html.ActionLink("View Cart", "Cart", "Cart", null)*@
+                    </li>
+                    <li>
+                        <a href="/Account/Account">Create Account or SignIn</a>
+                        @*@Html.ActionLink("Create or SignIn", "Account", "Account", null)*@
+                    </li>
+                    <li>
+                        <a href="/Contact/Contact">Contact</a>
+                        @*@Html.ActionLink("Contact", "Contact", "Contact", null)*@
+                    </li>
+                    <li>
+                        <!--<a href="/Admin/AdminLog">Admin</a>-->
+                        @Html.ActionLink("Admin", "AdminLog", "Admin")
+                        @*@Html.ActionLink("Contact", "Contact", "Contact", null)*@
+                    </li>
+                    <li>
+                        @*@Html.ActionLink("SignOut", "SignOut", "Account")*@
+                        @*@Html.ActionLink("Log Out", "SignOut2", "Account")*@
+                        <!--<a href="~/Account/SignOut2">SignOut</a>-->
+                        @Html.ActionLink("Log Out", "SignOut2", "Account")
+                    </li>
+                </ul>
+                
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <br />
+                        Login As @Session["User"]
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <div style="background-color:LightGray">
+            <footer>
+                <div class="row">
+                    <div class="col-sm-3">
+
+
+                        <h2>Service</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="#">Online Help</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Order Status</a></li>
+                            <li><a href="#">Change Location</a></li>
+                            <li><a href="#">FAQ’s</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="col-sm-3">
+                        <div>
+                            <h2>Policies</h2>
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#">Terms of Use</a></li>
+                                <li><a href="#">Privecy Policy</a></li>
+                                <li><a href="#">Refund Policy</a></li>
+                                <li><a href="#">Billing System</a></li>
+                                <li><a href="#">Ticket System</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div>
+                            <h2>About EasyShop</h2>
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#">Company Information</a></li>
+                                <li><a href="#">Careers</a></li>
+                                <li><a href="#">Store Location</a></li>
+                                <li><a href="#">Affillate Program</a></li>
+                                <li><a href="#">Copyright</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div>
+                            <h2>About EasyShop</h2>
+                            <form action="#" class="searchform">
+                                <input type="text" placeholder="Your email address">
+                                <button type="submit" class="btn btn-success"><i class="fa fa-arrow-circle-o-right"></i></button>
+                                <p>Get the most recent updates from <br>our site and be updated your self...</p>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </footer>
+        </div>
+        <hr />
+        <p>&copy; @DateTime.Now.Year -EasyShop Inc.All Rights Reserved. </p>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿@model List<EADProjectMVC.Models.Shoe>
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UpdateShoe</title>
+</head>
+<body>
+    <div> 
+        <div>
+            <a class="btn btn-primary pull-left" href="/Admin/AddNewShoe">Add New</a> <br />
+            <br />
+            <div class="row">
+                @foreach (var s in Model)
+                {
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                        <div class="thumbnail">
+                            <img src="~/Images/@s.image" />
+                            <hr />
+                            <div class="caption">
+                                <center>
+                                    <div class="row">
+
+                                        <p class="">Size: @s.Size</p><h4 class="">Price: @s.price</h4>
+                                    </div>
+                                    <div class="row">
+                                        <p class="">Company: @s.company</p>
+                                        <!--<a href="#" class="btn btn-default" >Hello</a>-->
+                                        <a href="/Admin/ShowUpdateShoe/@s.Id" class="btn btn-primary">Update</a>
+                                        <a href="/Admin/DeleteShoe/@s.Id" class="btn btn-primary">Delete</a>
+                                    </div>
+                                </center>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

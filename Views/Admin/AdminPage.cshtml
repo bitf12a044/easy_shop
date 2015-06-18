@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdminPage</title>
+</head>
+<body>
+    <center>
+        <div class="container">
+            <div>
+                <h2>Welcome to Admin Panel</h2>
+                <div class="col-md-4"></div>
+                <div class="col-md-3">
+                    <br /><br />
+                    <p class="lead">Categories</p>
+                    <div class="list-group">
+                        <!--<a href="/Multi/multiMethod/1" id="1" class="list-group-item">T-Shirts</a>-->
+                        @Html.ActionLink("T-Shirts", "UpdateShirt", "Admin", new { id = 1 }, new { @class = "list-group-item" })
+                        @*<a href="/Multi/multiMethod/2" class="list-group-item">Shoes</a>
+                            <a href="/Multi/multiMethod/3" class="list-group-item">Wallets</a>*@
+                        @Html.ActionLink("Shoes", "UpdateShoe", "Admin", new { id = 2 }, new { @class = "list-group-item" })
+                        @Html.ActionLink("Wallets", "UpdateWallet", "Admin", new { id = 3 }, new { @class = "list-group-item" })
+                        <br />
+                        @Html.ActionLink("Add New Admin", "AdminSignUp", "Admin", new { id = 2 }, new { @class = "btn btn-primary " })
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <br /><br />
+                    @*@Html.ActionLink("Add New Admin", "AdminSignUp", "Admin", new { id = 2 }, new { @class = "btn btn-primary pull-right" })*@
+                    
+                </div>
+            </div>
+        </div>
+    </center>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/jquery-1.10.2.js"></script>
+</body>
+</html>

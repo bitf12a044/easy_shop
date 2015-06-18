@@ -1,0 +1,49 @@
+﻿@model List<EADProjectMVC.Models.Shirt> 
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UpdateShirt</title>
+</head>
+<body>
+    <div>
+        <div >
+            
+            <a class="btn btn-primary pull-left" href="/Admin/AddNewShirt/1">Add New</a> 
+            
+            @*@Html.ActionLink("T-Shirts", "UpdateShirt", "Admin", new { id = 1 }, new { @class = "list-group-item" })*@
+        </div> <br /><br />
+        <div class="row">
+            @foreach (var s in Model)
+            {
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <div class="thumbnail">
+                        <img src="~/Images/@s.image" />
+                        <hr />
+                        <div class="caption">
+                            <center>
+                                <div class="row">
+
+                                    <p class="">Size: @s.Size</p><h4 class="">Price: @s.price</h4>
+                                </div>
+                                <div class="row">
+                                    <p class="">Company: @s.company</p>
+                                    <!--<a href="#" class="btn btn-default" >Hello</a>-->
+                                    <a href="/Admin/ShowUpdateShirt/@s.Id" class="btn btn-primary">Update</a>
+                                     <a href="/Admin/DeleteShirt/@s.Id" class="btn btn-primary">Delete</a>
+                                </div>
+                            </center>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>

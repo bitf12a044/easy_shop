@@ -1,0 +1,44 @@
+﻿@model EADProjectMVC.Models.Shirt
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowUpdateShirt</title>
+</head>
+<body>
+    <div>
+
+
+
+        <div class="container">
+            <div class="row">
+                @using (Html.BeginForm("Save", "Admin", FormMethod.Post))
+                {
+                    <div class="col-md-3">
+
+                        <img src="~/Images/@Model.image" />
+
+                    </div>
+                    <div class="col-md-3">
+                        <h4> Price:</h4>  <input type="text" value="@Model.price" name="price" /><br />
+                        Size:   <input type="text" value="@Model.Size" name="Size"/><br />
+                        Company:<input type="text" value="@Model.company" name="company"/><br />
+                        <input type="text" value="@Model.Id" name="Id" style="display:none"/>
+
+
+
+                        <button type="submit" class="btn btn-primary">Update</button>
+
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
